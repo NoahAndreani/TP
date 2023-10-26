@@ -30,7 +30,10 @@ résultat :
 ## III.
 ### 1/ 
 preuve que le routeur est bien connecter :  
-$ ping 8.8.8.8  
+ping 8.8.8.8  
 PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.  
 64 bytes from 8.8.8.8: icmp_seq=1 ttl=116 time=19.3 ms  
 64 bytes from 8.8.8.8: icmp_seq=2 ttl=116 time=18.4 ms  
+### 2/
+j'ai pas réussis a me connecter a internet depuis john ou marcel.
+(pour le ping il aurait fallut ping 8.8.8.8 et pour le ping DNS , ping google.com par exemple)
