@@ -27,7 +27,8 @@ résultat :
 | 3     |Ping         | 10.3.1.11 | john   `08:00:27:f9:6e:c7`|  10.3.2.12     |routeur `08:00:27:fb:9b:45`|  
 | 4     |Pong         | 10.3.2.12 | marcel `08:00:27:8c:6b:a7`|  10.3.1.11     |routeur `08:00:27:fb:9b:45`|  
 
- 3/ 
+## III.
+### 1/ 
 preuve que le routeur est bien connecter :  
 $ ping 8.8.8.8  
 PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.  
