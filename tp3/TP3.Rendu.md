@@ -14,8 +14,8 @@ route definitive (dans un fichier route-enp0s3):
 Le routeur a maintenant accès aux deux machines (john et marcel) , john a accès au "routeur" et marcel également
 | ordre | type trame  | IP source | MAC source                | IP destination | MAC destination           |  
 | ----- | ----------- | --------- | ------------------------- | -------------- | ------------------------- |  
-| 1     | Requête ARP | x         | `marcel` `AA:BB:CC:DD:EE` | x              |Broadcast`FF:FF:FF:FF:FF`  |  
-| 2     | Réponse ARP | x         | routeur`08:00:27:26:a5:a7`| x              | marcel  `AA:BB:CC:DD:EE`  |  
+| 1     | Requête ARP | x         | marcel `08:00:27:8c:6b:a7`| x              |Broadcast `FF:FF:FF:FF:FF` |  
+| 2     | Réponse ARP | x         | routeur`08:00:27:26:a5:a7`| x              | marcel `08:00:27:8c:6b:a7`|  
 | ...   | ...         | ...       | ...                       |                |                           |  
 | 3     |Ping         | 10.3.1.11 | john   `08:00:27:f9:6e:c7`|  10.3.2.12     |routeur `08:00:27:fb:9b:45`|  
 | 4     |Pong         | 10.3.2.12 | marcel `08:00:27:8c:6b:a7`|  10.3.1.11     |routeur `08:00:27:fb:9b:45`|  
