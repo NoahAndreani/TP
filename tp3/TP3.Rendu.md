@@ -35,5 +35,28 @@ PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
 64 bytes from 8.8.8.8: icmp_seq=1 ttl=116 time=19.3 ms  
 64 bytes from 8.8.8.8: icmp_seq=2 ttl=116 time=18.4 ms  
 ### 2/
-j'ai pas réussis a me connecter a internet depuis john ou marcel.  
-(pour le ping il aurait fallut ping 8.8.8.8 et pour le ping DNS , ping google.com par exemple)
+de John :  
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.  
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=115 time=21.9 ms  
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=115 time=21.9 ms  
+
+De Marcel :  
+PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.  
+64 bytes from 8.8.8.8: icmp_seq=1 ttl=115 time=23.0 ms  
+64 bytes from 8.8.8.8: icmp_seq=2 ttl=115 time=23.7 ms  
+
+De John :  
+PING ruenu.com (104.21.234.84) 56(84) bytes of data.  
+64 bytes from 104.21.234.84 (104.21.234.84): icmp_seq=1 ttl=54 time=34.2 ms  
+64 bytes from 104.21.234.84 (104.21.234.84): icmp_seq=2 ttl=54 time=22.4 ms  
+
+De Marcel :  
+PING displate.com (104.18.23.110) 56(84) bytes of data.  
+64 bytes from 104.18.23.110 (104.18.23.110): icmp_seq=1 ttl=54 time=20.6 ms  
+64 bytes from 104.18.23.110 (104.18.23.110): icmp_seq=2 ttl=54 time=29.4 ms  
+(on ajoute DNS1=1.1.1.1 dans /etc/sysconfig/network-scripts/ifcfg-enp0s3 chez les deux)  
+
+| ordre | type trame | IP source            | MAC source                | IP destination | MAC destination |     |
+| ----- | ---------- | -------------------- | ------------------------- | -------------- | --------------- | --- |
+| 1     | ping       | `marcel` `10.3.1.12` | `marcel` `AA:BB:CC:DD:EE` | `8.8.8.8`      | ?               |     |
+| 2     | pong       | ...                  | ...                       | ...            | ...             | ... |
