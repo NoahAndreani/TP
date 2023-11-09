@@ -43,7 +43,12 @@ Pour monter le Serveur DHCP nous avons du utilisé les commandes suivantes :
 -firewall-cmd --add-service=dhcp  
 -firewall-cmd --runtime-to-permanent  (on configure le firewall en pour que le DHCP marche)  
 -sudo nano /etc/sysconfig/network-scripts/ifcfg-enp0s3  
-(on active le DHCP de façon définitive dans le dossier ci-dessus)  
+(on active le DHCP de façon définitive dans le dossier ci-dessus en y entrant les lignes suivantes :  
+DEVICE=enp0s8  
+
+BOOTPROTO=dhcp  
+ONBOOT=yes)  
+
 -sudo nmcli con reload  
 -sudo nmcli con up "System enp0s8"  
 -sudo systemctl restart NetworkManager  
@@ -101,3 +106,16 @@ Ping node1 -> node2 :
 PING 10.4.1.12 (10.4.1.12) 56(84) bytes of data.  
 64 bytes from 10.4.1.12: icmp_seq=1 ttl=64 time=0.807 ms  
 64 bytes from 10.4.1.12: icmp_seq=2 ttl=64 time=0.752 ms  
+
+infos sur node1 depuis DHCP server 
+lease 10.4.1.139 {  
+  starts 4 2023/11/09 13:35:41;  
+  ends 4 2023/11/09 13:45:41;  
+  tstp 4 2023/11/09 13:45:41;  
+  cltt 4 2023/11/09 13:35:41;  
+  binding state active;  
+  next binding state free;  
+  rewind binding state free;  
+  hardware ethernet 08:00:27:08:80:1d;  
+  uid "\001\010\000'\010\200\035";  
+}  
