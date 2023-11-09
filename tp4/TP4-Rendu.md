@@ -107,7 +107,7 @@ PING 10.4.1.12 (10.4.1.12) 56(84) bytes of data.
 64 bytes from 10.4.1.12: icmp_seq=1 ttl=64 time=0.807 ms  
 64 bytes from 10.4.1.12: icmp_seq=2 ttl=64 time=0.752 ms  
 
-infos sur node1 depuis DHCP server 
+infos sur node1 depuis DHCP server :  
 lease 10.4.1.139 {  
   starts 4 2023/11/09 13:35:41;  
   ends 4 2023/11/09 13:45:41;  
