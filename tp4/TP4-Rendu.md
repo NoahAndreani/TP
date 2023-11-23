@@ -76,27 +76,36 @@ option routers 10.4.1.254;
 
 ### 5/
 #### 1/
+nmcli con show enp0s3 donne :  
+DHCP4.OPTION[1]:                        broadcast_address = 10.4.1.255  
+DHCP4.OPTION[2]:                        dhcp_client_identifier = 01:08:00:27:08:80:1d  
+DHCP4.OPTION[3]:                        dhcp_lease_time = 21600  
+DHCP4.OPTION[4]:                        dhcp_server_identifier = 10.4.1.253  
+DHCP4.OPTION[5]:                        domain_name = srv.world  
+DHCP4.OPTION[6]:                        domain_name_servers = 8.8.8.8  
+DHCP4.OPTION[7]:                        expiry = 1699640882  
+DHCP4.OPTION[8]:                        ip_address = 10.4.1.139  
+DHCP4.OPTION[9]:                        requested_broadcast_address = 1  
+DHCP4.OPTION[10]:                       requested_domain_name = 1  
+DHCP4.OPTION[11]:                       requested_domain_name_servers = 1  
+DHCP4.OPTION[12]:                       requested_domain_search = 1  
+DHCP4.OPTION[13]:                       requested_host_name = 1  
+DHCP4.OPTION[14]:                       requested_interface_mtu = 1  
+DHCP4.OPTION[15]:                       requested_ms_classless_static_routes = 1  
+DHCP4.OPTION[16]:                       requested_nis_domain = 1  
+DHCP4.OPTION[17]:                       requested_nis_servers = 1  
+DHCP4.OPTION[18]:                       requested_ntp_servers = 1  
+DHCP4.OPTION[19]:                       requested_rfc3442_classless_static_routes = 1  
+DHCP4.OPTION[20]:                       requested_root_path = 1  
+DHCP4.OPTION[21]:                       requested_routers = 1  
+DHCP4.OPTION[22]:                       requested_static_routes = 1  
+DHCP4.OPTION[23]:                       requested_subnet_mask = 1  
+DHCP4.OPTION[24]:                       requested_time_offset = 1  
+DHCP4.OPTION[25]:                       requested_wpad = 1  
+DHCP4.OPTION[26]:                       routers = 10.4.1.254  
+DHCP4.OPTION[27]:                       subnet_mask = 255.255.255.0  
 
-l'ip a bien été changer dynamiquement comme visible ici :  
-Nov 08 23:17:36 DHCPTP4 dhcpd[11461]: DHCPACK on 10.4.1.138 to 08:00:27:08:80:1d via enp0s3  
-Nov 08 23:28:54 DHCPTP4 dhcpd[11461]: DHCPDISCOVER from 08:00:27:08:80:1d via enp0s3  
-Nov 08 23:28:54 DHCPTP4 dhcpd[11461]: ICMP Echo reply while lease 10.4.1.138 valid.  
-Nov 08 23:28:54 DHCPTP4 dhcpd[11461]: Abandoning IP address 10.4.1.138: pinged before offer  
-Nov 08 23:28:56 DHCPTP4 dhcpd[11461]: DHCPDISCOVER from 08:00:27:08:80:1d via enp0s3  
-Nov 08 23:28:57 DHCPTP4 dhcpd[11461]: DHCPOFFER on 10.4.1.139 to 08:00:27:08:80:1d via enp0s3  
-Nov 08 23:28:57 DHCPTP4 dhcpd[11461]: DHCPREQUEST for 10.4.1.139 (10.4.1.253) from 08:00:27:08:80:1d via enp0s3: unknown lease 10.4.1.139.  
-Nov 08 23:29:00 DHCPTP4 dhcpd[11461]: DHCPREQUEST for 10.4.1.139 (10.4.1.253) from 08:00:27:08:80:1d via enp0s3: unknown lease 10.4.1.139.  
-Nov 08 23:29:05 DHCPTP4 dhcpd[11461]: DHCPREQUEST for 10.4.1.139 (10.4.1.253) from 08:00:27:08:80:1d via enp0s3: unknown lease 10.4.1.139.  
-Nov 08 23:29:13 DHCPTP4 dhcpd[11461]: DHCPREQUEST for 10.4.1.139 (10.4.1.253) from 08:00:27:08:80:1d via enp0s3: unknown lease 10.4.1.139.  
-Nov 08 23:29:29 DHCPTP4 dhcpd[11461]: DHCPREQUEST for 10.4.1.139 (10.4.1.253) from 08:00:27:08:80:1d via enp0s3: unknown lease 10.4.1.139.  
-Nov 08 23:29:39 DHCPTP4 dhcpd[11461]: DHCPREQUEST for 10.4.1.138 from 08:00:27:08:80:1d via enp0s3: unknown lease 10.4.1.138.  
-Nov 08 23:29:41 DHCPTP4 dhcpd[11461]: DHCPDISCOVER from 08:00:27:08:80:1d via enp0s3  
-Nov 08 23:29:41 DHCPTP4 dhcpd[11461]: DHCPOFFER on 10.4.1.139 to 08:00:27:08:80:1d via enp0s3  
-(on peut voir que l'ip change car celle finissant par 138 n'était pas attribuable)  
-
-Creation :  1699537322 (soit : Thursday, November 9, 2023 2:42:02 PM GMT+01:00)  
-Expiration : 1699537921 (soit :Thursday, November 9, 2023 2:52:01 PM GMT+01:00)  
-IP du DHCP :  dhcp_server_identifier = 10.4.1.253  
+l'expiration est donc le  Friday, November 10, 2023 7:28:02 PM GMT+01:00
 
 Ping node1 -> routeur :  
 PING 10.4.1.254 (10.4.1.254) 56(84) bytes of data.  
@@ -158,7 +167,7 @@ lease 10.4.1.139 {
   ends 5 2023/11/10 05:59:14;  
   tstp 5 2023/11/10 05:59:14;  
   cltt 4 2023/11/09 23:59:14;  
-  binding state free;  
+  binding state free;  >4>3
   hardware ethernet 08:00:27:08:80:1d;  
   uid "\001\010\000'\010\200\035";  
 }  
