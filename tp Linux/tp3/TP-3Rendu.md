@@ -148,3 +148,151 @@ noah@10.3.1.11's password:
 Last login: Tue Jan 30 15:06:42 2024 from 10.3.1.1
 [noah@node1 ~]$
 ```
+
+# Partie 2
+
+1/
+```
+[noah@node1 ~]$ sudo dnf install nginx
+[sudo] password for noah:
+Rocky Linux 9 - BaseOS                                                                  7.0 kB/s | 4.1 kB     00:00
+[. . .]
+rocky-logos-httpd-90.14-2.el9.noarch
+
+Complete!
+```
+
+2/
+
+```
+sudo systemctl start nginx
+```
+
+3/
+
+```
+[noah@node1 ~]$ ss -alntp | grep 80
+LISTEN 0      511          0.0.0.0:80        0.0.0.0:*
+LISTEN 0      511             [::]:80           [::]:*
+```
+```
+[noah@node1 ~]$ sudo firewall-cmd --add-port=80/tcp --permanent
+[sudo] password for noah:
+success
+[noah@node1 ~]$ sudo firewall-cmd --reload
+success
+```
+
+4/
+```
+[noah@node1 ~]$ ps -ef | grep nginx
+root        4197       1  0 13:29 ?        00:00:00 nginx: master process nginx
+nginx       4198    4197  0 13:29 ?        00:00:00 nginx: worker process
+noah        4288    1355  0 13:49 pts/0    00:00:00 grep --color=auto nginx
+```
+
+5/
+```
+[noah@node1 ~]$ sudo cat /etc/passwd | grep nginx
+nginx:x:991:991:Nginx web server:/var/lib/nginx:/sbin/nologin
+```
+
+6/ 
+```
+curl http://10.2.1.11 | head -n 7
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100  7620  100  7620    0     0  3446k      0 --:--:-- --:--:-- --:--:-- 3720k
+<!doctype html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>HTTP Server Test Page powered by: Rocky Linux</title>
+    <style type="text/css">
+```
+## 2/
+7/
+```
+[noah@node1 ~]$ ls -al /etc/nginx/nginx.conf
+-rw-r--r--. 1 root root 2334 Oct 16 20:00 /etc/nginx/nginx.conf
+```
+
+8/
+```
+[noah@node1 ~]$ sudo cat /etc/nginx/nginx.conf | grep server -A 12
+[sudo] password for noah:
+    server {
+        listen       80;
+        listen       [::]:80;
+        server_name  _;
+        root         /usr/share/nginx/html;
+
+        # Load configuration files for the default server block.
+        include /etc/nginx/default.d/*.conf;
+
+        error_page 404 /404.html;
+        location = /404.html {
+        }
+
+        error_page 500 502 503 504 /50x.html;
+        location = /50x.html {
+        }
+    }
+
+# Settings for a TLS enabled server.
+#
+#    server {
+#        listen       443 ssl http2;
+#        listen       [::]:443 ssl http2;
+#        server_name  _;
+#        root         /usr/share/nginx/html;
+#
+#        ssl_certificate "/etc/pki/nginx/server.crt";
+#        ssl_certificate_key "/etc/pki/nginx/private/server.key";
+#        ssl_session_cache shared:SSL:1m;
+#        ssl_session_timeout  10m;
+#        ssl_ciphers PROFILE=SYSTEM;
+#        ssl_prefer_server_ciphers on;
+#
+#        # Load configuration files for the default server block.
+#        include /etc/nginx/default.d/*.conf;
+#
+#        error_page 404 /404.html;
+#            location = /40x.html {
+#        }
+#
+#        error_page 500 502 503 504 /50x.html;
+#            location = /50x.html {
+#        }
+#    }
+
+}
+```
+```
+[noah@node1 ~]$ sudo cat /etc/nginx/nginx.conf | grep include
+include /usr/share/nginx/modules/*.conf;
+    include             /etc/nginx/mime.types;
+    # See http://nginx.org/en/docs/ngx_core_module.html#include
+    include /etc/nginx/conf.d/*.conf;
+        include /etc/nginx/default.d/*.conf;
+#        include /etc/nginx/default.d/*.conf;
+```
+
+## 3
+
+9/ 
+```
+[noah@node1 ~]$ sudo rm -r /var/www/
+[noah@node1 ~]$ sudo mkdir /var/cunsite/
+[noah@node1 ~]$ cd /var/cunsite/
+[noah@node1 cunsite]$ sudo mkdir tplinux3
+[noah@node1 cunsite]$ sudo touch index.html
+[noah@node1 cunsite]$ sudo nano index.html
+<h1>bonsoiirrr parisss</h1>
+```
+
+10/
+```
+[noah@node1 cunsite]$ sudo chown nginx /var/cunsite/tplinux3/
+```
