@@ -202,3 +202,6 @@ prouvez avec une commande curl sur votre machine que vous pouvez désormais visi
 </html>
 ```
 
+#! chemin vers bash  
+#nom  
+#date
