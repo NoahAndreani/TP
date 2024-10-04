@@ -116,11 +116,12 @@ public (active)
 ☀️ Sur node1.lan1.tp2
 
 ```
-[noah@node1 ~]$ curl http://site_nul.tp2
-tessstttt
-
 [noah@node1 ~]$ sudo cat /etc/hosts
 10.1.2.12 site_nul.tp2
+
+
+[noah@node1 ~]$ curl http://site_nul.tp2
+tessstttt
 ```
 
 
