@@ -185,3 +185,26 @@ public (active)
 Calcul à envoyer: 7+7-8
 6
 ```
+🌞 Installer Netdata sur hosting.tp5.b1
+
+```
+[noah@hosting ~]$ sudo systemctl status netdata
+● netdata.service - Real time performance monitoring
+     Loaded: loaded (/usr/lib/systemd/system/netdata.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2024-10-24 21:11:09 CEST; 1s ago
+```
+
+🌞 Alerting Discord
+
+```
+netdata on hosting.tp5.b1
+APP
+ — Aujourd’hui à 16:21
+hosting.tp5.b1 is critical, portcheck_job2.port_13337_status, Portcheck timeouts for 10.0.3.15:13337 = 42.4%
+Portcheck timeouts for 10.0.3.15:13337 = 42.4%
+Percentage of timed-out TCP connections to host 10.0.3.15 port 13337 in the last 5 minutes
+portcheck_job2.port_13337_status
+Image
+
+hosting.tp5.b1•Aujourd’hui à 16:21
+```
